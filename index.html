@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Claude Code 完整下載安裝教學 - 2026 最新版最強 AI 編程助手，提供 Windows、Mac、Linux 詳細安裝步驟與使用指令指南。">
+    <meta name="keywords" content="Claude Code, AI 編程, 下載教學, 安裝指南, Anthropic, Cursor替代品, AI寫程式">
+    <meta name="author" content="Claude Code Guide">
+    <meta property="og:title" content="Claude Code 下載安裝完整教學 | AI 編程助手指南">
+    <meta property="og:description" content="最強 AI 編程助手，從安裝到使用一次搞定。提供詳細指令與環境設定教學。">
+    <meta property="og:type" content="website">
+    <title>Claude Code 下載安裝完整教學 | AI 編程助手指南</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --claude-orange: #E97451;
+            --claude-orange-dark: #D5654A;
+            --claude-orange-light: #F5A085;
+            --dark-bg: #1A1A1A;
+            --darker-bg: #0F0F0F;
+            --card-bg: rgba(26, 26, 26, 0.8);
+            --light-text: #F5F5F5;
+            --gray-text: #B0B0B0;
+            --accent-gold: #FFB84D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: var(--darker-bg);
+            color: var(--light-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        code, pre {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% -20%, #1a1515 0%, var(--darker-bg) 100%);
+        }
+
+        .bg-blob {
+            position: absolute;
+            background: radial-gradient(circle, rgba(233, 116, 81, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(233, 116, 81, 0.15);
+            z-index: 1000;
+            height: 70px;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--light-text);
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--claude-orange);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--claude-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--claude-orange) 0%, var(--claude-orange-dark) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(233, 116, 81, 0.25);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(233, 116, 81, 0.35);
+        }
+
+        /* Main Layout (Centered Single Column) */
+        .main-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Content Styles */
+        .content-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .content-card h2 {
+            color: var(--claude-orange);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-card h3 {
+            color: var(--light-text);
+            margin: 2rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--claude-orange);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .code-block {
+            background: #000;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            overflow-x: auto;
+            margin: 1rem 0;
+            color: var(--accent-gold);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-item h4 {
+            color: var(--claude-orange);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .video-card {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--claude-orange);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #222;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-thumbnail::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            transition: background 0.3s;
+        }
+
+        .video-card:hover .video-thumbnail::after {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .play-icon {
+            font-size: 3rem;
+            color: var(--claude-orange);
+            opacity: 0.9;
+            transition: transform 0.3s, opacity 0.3s;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .video-card:hover .play-icon {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .video-info {
+            padding: 1.2rem;
+            flex-grow: 1;
+        }
+
+        .video-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .video-lang-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            background: rgba(233, 116, 81, 0.2);
+            color: var(--claude-orange);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: relative;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--light-text);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: inherit;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--claude-orange);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .lang-menu {
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: none;
+            width: 150px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            z-index: 1001;
+        }
+
+        .lang-menu.show { display: block; }
+
+        .lang-option {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #ccc;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .lang-option:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--gray-text);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            color: var(--claude-orange);
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-center {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #151515;
+                flex-direction: column;
+                padding: 2rem;
+                display: none;
+                border-bottom: 1px solid #333;
+            }
+            .nav-center.active { display: flex; }
+            .nav-links { flex-direction: column; text-align: center; }
+            .mobile-toggle { display: block; }
+            .nav-right { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic background elements -->
+    <div class="bg-animation"></div>
+    <div class="bg-blob" style="top: -100px; right: -100px; width: 600px; height: 600px;"></div>
+    <div class="bg-blob" style="bottom: -100px; left: -100px; width: 400px; height: 400px;"></div>
+
+    <header>
+        <nav>
+            <a href="#" class="logo-section">
+                <span class="logo-icon">🤖</span>
+                <span class="logo" data-i18n="site_title">Claude Code 指南</span>
+            </a>
+
+            <div class="nav-center" id="mobileMenu">
+                <ul class="nav-links">
+                    <li><a href="#intro" data-i18n="nav_intro">介紹</a></li>
+                    <li><a href="#download" data-i18n="nav_download">下載</a></li>
+                    <li><a href="#install" data-i18n="nav_install">安裝</a></li>
+                    <li><a href="#tutorials" data-i18n="nav_tutorials">教學影片</a></li>
+                    <li><a href="#faq" data-i18n="nav_faq">常見問題</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-right">
+                <div class="lang-switcher">
+                    <button class="lang-btn" onclick="toggleLang()">
+                        <span id="langBtnText" data-i18n="lang_btn_label">語言</span>
+                        <span style="font-size: 0.7em; margin-left: 2px;">▼</span>
+                    </button>
+                    <div class="lang-menu" id="langMenu">
+                        <div class="lang-option" onclick="setLang('zh-TW')">繁體中文</div>
+                        <div class="lang-option" onclick="setLang('zh-CN')">简体中文</div>
+                        <div class="lang-option" onclick="setLang('en')">English</div>
+                    </div>
+                </div>
+                <a href="#download" class="cta-button" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;" data-i18n="btn_download">下載</a>
+            </div>
+
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 data-i18n="hero_title">Claude Code 完整教學指南</h1>
+        <p data-i18n="hero_subtitle">最強 AI 編程助手，從安裝到環境配置一次搞定。透過命令行釋放 AI 的潛力。</p>
+        <a href="#download" class="cta-button" data-i18n="hero_cta">開始安裝使用</a>
+    </section>
+
+    <div class="main-wrapper">
+        <main>
+            <div class="content-card" id="intro">
+                <h2 data-i18n="intro_title">🚀 什麼是 Claude Code？</h2>
+                <p data-i18n="intro_desc">Claude Code 是 Anthropic 推出的革命性命令行工具，它允許開發者直接在終端機中與 Claude 3.5 Sonnet 模型協作。這不是簡單的聊天機器人，它可以讀取你的檔案、執行終端指令、並協助你重構代碼。</p>
+                <div class="feature-grid" style="margin-top: 2rem;">
+                    <div class="feature-item">
+                        <h4 data-i18n="feat_1_title">直接操作終端</h4>
+                        <p data-i18n="feat_1_desc">無需切換視窗，Claude 直接在你的 CLI 環境中工作。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4 data-i18n="feat_2_title">理解專案結構</h4>
+                        <p data-i18n="feat_2_desc">它可以分析整個文件夾，理解代碼上下文。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card" id="download">
+                <h2 data-i18n="download_title">📥 下載與系統需求</h2>
+                <div class="step">
+                    <h4 data-i18n="req_title">前置需求</h4>
+                    <ul>
+                        <li data-i18n="req_1">Node.js 18.0.0 或更高版本</li>
+                        <li data-i18n="req_2">有效的 Anthropic API Key (需綁定信用卡)</li>
+                        <li data-i18n="req_3">Git (版本控制)</li>
+                    </ul>
+                </div>
+
+                <h3 data-i18n="step_mac">macOS 用戶 (推薦)</h3>
+                <p data-i18n="step_mac_desc">使用 Homebrew 安裝是最快的方式：</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    brew install anthropic/tap/claude-code
+                </div>
+
+                <h3 data-i18n="step_npm">Windows / Linux (透過 npm)</h3>
+                <p data-i18n="step_npm_desc">確保您已經安裝了 Node.js，然後執行：</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    npm install -g @anthropic-ai/claude-code
+                </div>
+            </div>
+
+            <div class="content-card" id="install">
+                <h2 data-i18n="config_title">⚙️ 初始化與授權</h2>
+                <p data-i18n="config_desc">安裝完成後，您需要進行首次登入設定。請在終端機輸入以下指令：</p>
+                
+                <div class="step">
+                    <h4 data-i18n="config_step1">1. 啟動 Claude Code</h4>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        claude
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h4 data-i18n="config_step2">2. 完成授權</h4>
+                    <p data-i18n="config_step2_desc">系統會自動開啟瀏覽器引導您登入 Anthropic 帳號並授權。授權完成後，您將獲得一組 Token，終端機會自動偵測並完成設定。</p>
+                </div>
+            </div>
+
+            <!-- Video Tutorial Section with Actual Thumbnails -->
+            <div class="content-card" id="tutorials">
+                <h2 data-i18n="video_title">🎬 安裝教學影片</h2>
+                <p data-i18n="video_desc">如果您在安裝過程中遇到困難，請參考以下針對不同語言的詳細影音教學：</p>
+                
+                <div class="video-grid">
+                    <!-- Traditional Chinese Video -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/8Q1bRZaHH24/mqdefault.jpg')" onclick="window.open('https://www.youtube.com/watch?v=8Q1bRZaHH24', '_blank')">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-lang-tag" data-i18n="tag_tw">繁體中文</span>
+                            <div class="video-title" data-i18n="vid_tw_title">Claude Code 繁體中文安裝全攻略</div>
+                            <a href="https://www.youtube.com/watch?v=8Q1bRZaHH24" target="_blank" style="font-size: 0.9rem; color: var(--claude-orange); text-decoration: none;">Watch on YouTube ↗</a>
+                        </div>
+                    </div>
+
+                    <!-- Simplified Chinese Video -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/NGAHdg2vGEo/mqdefault.jpg')" onclick="window.open('https://www.youtube.com/watch?v=NGAHdg2vGEo', '_blank')">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-lang-tag" data-i18n="tag_cn">简体中文</span>
+                            <div class="video-title" data-i18n="vid_cn_title">Claude Code 零基础保姆级教程</div>
+                            <a href="https://www.youtube.com/watch?v=NGAHdg2vGEo" target="_blank" style="font-size: 0.9rem; color: var(--claude-orange); text-decoration: none;">Watch on YouTube ↗</a>
+                        </div>
+                    </div>
+
+                    <!-- English Video -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/QsjrBQK0lTg/mqdefault.jpg')" onclick="window.open('https://www.youtube.com/watch?v=QsjrBQK0lTg', '_blank')">
+                            <span class="play-icon">▶</span>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-lang-tag" data-i18n="tag_en">English</span>
+                            <div class="video-title" data-i18n="vid_en_title">Claude Code Ultimate Installation Guide</div>
+                            <a href="https://www.youtube.com/watch?v=QsjrBQK0lTg" target="_blank" style="font-size: 0.9rem; color: var(--claude-orange); text-decoration: none;">Watch on YouTube ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card" id="faq">
+                <h2 data-i18n="faq_title">❓ 常見問題</h2>
+                <div class="step" style="border-left-color: var(--gray-text);">
+                    <h4 data-i18n="faq_q1">Q: Claude Code 是免費的嗎？</h4>
+                    <p data-i18n="faq_a1">工具本身是開源或免費下載的，但使用時會消耗 Anthropic API 的 Token，這部分是需要付費的。</p>
+                </div>
+                <div class="step" style="border-left-color: var(--gray-text);">
+                    <h4 data-i18n="faq_q2">Q: 支援中文對話嗎？</h4>
+                    <p data-i18n="faq_a2">支援！你可以直接用中文下指令，例如「幫我解釋這個檔案在做什麼」。</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p data-i18n="footer_rights">&copy; 2026 Claude Code Guide. 非官方教學網站 (Unofficial Fan Site).</p>
+        <div style="margin-top: 1rem;">
+            <a href="#" data-i18n="footer_privacy">隱私權政策</a> | 
+            <a href="#" data-i18n="footer_terms">服務條款</a> | 
+            <a href="#" data-i18n="footer_contact">聯絡我們</a>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 1rem; color: #555;" data-i18n="footer_disclaimer">
+            本站僅供教學用途，Claude Code 商標歸 Anthropic 所有。
+        </p>
+    </footer>
+
+    <script>
+        function copyCode(btn) {
+            const code = btn.parentElement.innerText.replace('Copy', '').trim();
+            navigator.clipboard.writeText(code);
+            btn.innerText = 'Copied!';
+            setTimeout(() => btn.innerText = 'Copy', 2000);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        const translations = {
+            'zh-TW': {
+                site_title: 'Claude Code 指南',
+                lang_btn_label: '語言',
+                nav_intro: '介紹',
+                nav_download: '下載',
+                nav_install: '安裝',
+                nav_tutorials: '教學影片',
+                nav_faq: '常見問題',
+                hero_title: 'Claude Code 完整教學指南',
+                hero_subtitle: '最強 AI 編程助手，從安裝到環境配置一次搞定。透過命令行釋放 AI 的潛力。',
+                hero_cta: '開始安裝使用',
+                intro_title: '🚀 什麼是 Claude Code？',
+                intro_desc: 'Claude Code 是 Anthropic 推出的革命性命令行工具，它允許開發者直接在終端機中與 Claude 3.5 Sonnet 模型協作。這不是簡單的聊天機器人，它可以讀取你的檔案、執行終端指令、並協助你重構代碼。',
+                feat_1_title: '直接操作終端',
+                feat_1_desc: '無需切換視窗，Claude 直接在你的 CLI 環境中工作。',
+                feat_2_title: '理解專案結構',
+                feat_2_desc: '它可以分析整個文件夾，理解代碼上下文。',
+                download_title: '📥 下載與系統需求',
+                btn_download: '下載',
+                req_title: '前置需求',
+                req_1: 'Node.js 18.0.0 或更高版本',
+                req_2: '有效的 Anthropic API Key (需綁定信用卡)',
+                req_3: 'Git (版本控制)',
+                step_mac: 'macOS 用戶 (推薦)',
+                step_mac_desc: '使用 Homebrew 安裝是最快的方式：',
+                step_npm: 'Windows / Linux (透過 npm)',
+                step_npm_desc: '確保您已經安裝了 Node.js，然後執行：',
+                config_title: '⚙️ 初始化與授權',
+                config_desc: '安裝完成後，您需要進行首次登入設定。請在終端機輸入以下指令：',
+                config_step1: '1. 啟動 Claude Code',
+                config_step2: '2. 完成授權',
+                config_step2_desc: '系統會自動開啟瀏覽器引導您登入 Anthropic 帳號並授權。授權完成後，您將獲得一組 Token，終端機會自動偵測並完成設定。',
+                video_title: '🎬 安裝教學影片',
+                video_desc: '如果您在安裝過程中遇到困難，請參考以下針對不同語言的詳細影音教學：',
+                tag_tw: '繁體中文',
+                vid_tw_title: 'Claude Code 繁體中文安裝全攻略',
+                tag_cn: '简体中文',
+                vid_cn_title: 'Claude Code 零基础保姆级教程',
+                tag_en: 'English',
+                vid_en_title: 'Claude Code Ultimate Installation Guide',
+                faq_title: '❓ 常見問題',
+                faq_q1: 'Q: Claude Code 是免費的嗎？',
+                faq_a1: '工具本身是開源或免費下載的，但使用時會消耗 Anthropic API 的 Token，這部分是需要付費的。',
+                faq_q2: 'Q: 支援中文對話嗎？',
+                faq_a2: '支援！你可以直接用中文下指令，例如「幫我解釋這個檔案在做什麼」。',
+                footer_rights: '© 2026 Claude Code Guide. 非官方教學網站 (Unofficial Fan Site).',
+                footer_privacy: '隱私權政策',
+                footer_terms: '服務條款',
+                footer_contact: '聯絡我們',
+                footer_disclaimer: '本站僅供教學用途，Claude Code 商標歸 Anthropic 所有。'
+            },
+            'zh-CN': {
+                site_title: 'Claude Code 指南',
+                lang_btn_label: '语言',
+                nav_intro: '介绍',
+                nav_download: '下载',
+                nav_install: '安装',
+                nav_tutorials: '教学视频',
+                nav_faq: '常见问题',
+                hero_title: 'Claude Code 完整教程指南',
+                hero_subtitle: '最强 AI 编程助手，从安装到环境配置一次搞定。通过命令行释放 AI 的潜力。',
+                hero_cta: '开始安装使用',
+                intro_title: '🚀 什么是 Claude Code？',
+                intro_desc: 'Claude Code 是 Anthropic 推出的革命性命令行工具，它允许开发者直接在终端机中与 Claude 3.5 Sonnet 模型协作。这不是简单的聊天机器人，它可以读取你的档案、执行终端指令、并协助你重构代码。',
+                feat_1_title: '直接操作终端',
+                feat_1_desc: '无需切换窗口，Claude 直接在你的 CLI 环境中工作。',
+                feat_2_title: '理解项目结构',
+                feat_2_desc: '它可以分析整个文件夹，理解代码上下文。',
+                download_title: '📥 下载与系统需求',
+                btn_download: '下载',
+                req_title: '前置需求',
+                req_1: 'Node.js 18.0.0 或更高版本',
+                req_2: '有效的 Anthropic API Key (需绑定信用卡)',
+                req_3: 'Git (版本控制)',
+                step_mac: 'macOS 用户 (推荐)',
+                step_mac_desc: '使用 Homebrew 安装是最快的方式：',
+                step_npm: 'Windows / Linux (通过 npm)',
+                step_npm_desc: '确保您已经安装了 Node.js，然后执行：',
+                config_title: '⚙️ 初始化与授权',
+                config_desc: '安装完成后，您需要进行首次登录设置。请在终端机输入以下指令：',
+                config_step1: '1. 启动 Claude Code',
+                config_step2: '2. 完成授权',
+                config_step2_desc: '系统会自动开启浏览器引导您登录 Anthropic 账号并授权。授权完成后，您将获得一组 Token，终端机会自动检测并完成设置。',
+                video_title: '🎬 安装教学视频',
+                video_desc: '如果您在安装过程中遇到困难，请参考以下针对不同语言的详细视频教学：',
+                tag_tw: '繁体中文',
+                vid_tw_title: 'Claude Code 繁体中文安装全攻略',
+                tag_cn: '简体中文',
+                vid_cn_title: 'Claude Code 零基础保姆级教程',
+                tag_en: 'English',
+                vid_en_title: 'Claude Code Ultimate Installation Guide',
+                faq_title: '❓ 常见问题',
+                faq_q1: 'Q: Claude Code 是免费的吗？',
+                faq_a1: '工具本身是开源或免费下载的，但使用时会消耗 Anthropic API 的 Token，这部分是需要付费的。',
+                faq_q2: 'Q: 支持中文对话吗？',
+                faq_a2: '支持！你可以直接用中文下指令，例如「帮我解释这个档案在做什么」。',
+                footer_rights: '© 2026 Claude Code Guide. 非官方教学网站 (Unofficial Fan Site).',
+                footer_privacy: '隐私权政策',
+                footer_terms: '服务条款',
+                footer_contact: '联络我们',
+                footer_disclaimer: '本站仅供教学用途，Claude Code 商標归 Anthropic 所有。'
+            },
+            'en': {
+                site_title: 'Claude Code Guide',
+                lang_btn_label: 'Language',
+                nav_intro: 'Intro',
+                nav_download: 'Download',
+                nav_install: 'Install',
+                nav_tutorials: 'Tutorials',
+                nav_faq: 'FAQ',
+                hero_title: 'Complete Claude Code Guide',
+                hero_subtitle: 'The ultimate AI coding assistant. Master installation and configuration in one go.',
+                hero_cta: 'Get Started',
+                intro_title: '🚀 What is Claude Code?',
+                intro_desc: 'Claude Code is a revolutionary CLI tool by Anthropic that allows developers to collaborate with the Claude 3.5 Sonnet model directly in the terminal. It can read your files, execute commands, and refactor code.',
+                feat_1_title: 'CLI Native',
+                feat_1_desc: 'No window switching; Claude works directly in your CLI environment.',
+                feat_2_title: 'Full Context',
+                feat_2_desc: 'It understands your entire project structure and codebase context.',
+                download_title: '📥 Download & Requirements',
+                btn_download: 'Download',
+                req_title: 'Prerequisites',
+                req_1: 'Node.js 18.0.0 or higher',
+                req_2: 'Valid Anthropic API Key (Billing required)',
+                req_3: 'Git (Version Control)',
+                step_mac: 'macOS (Recommended)',
+                step_mac_desc: 'Fastest way is via Homebrew:',
+                step_npm: 'Windows / Linux (via npm)',
+                step_npm_desc: 'Ensure Node.js is installed, then run:',
+                config_title: '⚙️ Init & Auth',
+                config_desc: 'After installation, set up your login in the terminal:',
+                config_step1: '1. Start Claude Code',
+                config_step2: '2. Complete Authorization',
+                config_step2_desc: 'A browser window will open for Anthropic login. Once done, the terminal will auto-configure.',
+                video_title: '🎬 Video Tutorials',
+                video_desc: 'Check out these step-by-step video guides in different languages:',
+                tag_tw: 'Traditional Chinese',
+                vid_tw_title: 'Claude Code TC Installation Guide',
+                tag_cn: 'Simplified Chinese',
+                vid_cn_title: 'Claude Code SC Beginner Tutorial',
+                tag_en: 'English',
+                vid_en_title: 'Claude Code Ultimate Installation Guide',
+                faq_title: '❓ FAQ',
+                faq_q1: 'Q: Is Claude Code free?',
+                faq_a1: 'The tool is free, but usage consumes Anthropic API Tokens which require a paid balance.',
+                faq_q2: 'Q: Multilingual Support?',
+                faq_a2: 'Yes! You can prompt Claude Code in English, Chinese, and many other languages.',
+                footer_rights: '© 2026 Claude Code Guide. Unofficial Fan Site.',
+                footer_privacy: 'Privacy Policy',
+                footer_terms: 'Terms of Service',
+                footer_contact: 'Contact Us',
+                footer_disclaimer: 'For educational purposes. Claude Code is a trademark of Anthropic.'
+            }
+        };
+
+        function toggleLang() {
+            document.getElementById('langMenu').classList.toggle('show');
+        }
+
+        function setLang(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            const texts = translations[lang];
+            
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (texts[key]) el.innerText = texts[key];
+            });
+
+            document.getElementById('langMenu').classList.remove('show');
+            document.documentElement.lang = lang;
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.lang-btn') && !event.target.closest('.lang-btn')) {
+                const dropdowns = document.getElementsByClassName("lang-menu");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    if (dropdowns[i].classList.contains('show')) dropdowns[i].classList.remove('show');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
