@@ -11,7 +11,6 @@
     <meta property="og:type" content="website">
     <title>Claude Code 下載安裝完整教學 | AI 編程助手指南</title>
     <meta name="google-site-verification" content="Uf3A5rGomCycwQ8Phqli3RB4Gpm76roEbQLF8G9gTYM" />
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,9 +182,9 @@
             box-shadow: 0 15px 40px rgba(233, 116, 81, 0.35);
         }
 
-        /* Main Layout (Centered Single Column) */
+        /* Main Layout */
         .main-wrapper {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
@@ -270,12 +269,106 @@
         .feature-item h4 {
             color: var(--claude-orange);
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--gray-text);
+            font-size: 0.95rem;
+        }
+        .feature-list li::before {
+            content: "•";
+            color: var(--claude-orange);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--claude-orange);
+        }
+        .pricing-card.popular {
+            border-color: rgba(233, 116, 81, 0.4);
+            background: rgba(233, 116, 81, 0.03);
+        }
+        .pricing-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+        }
+        .plan-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--claude-orange);
+            margin-bottom: 1.5rem;
+        }
+        .plan-price span {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            font-weight: 400;
+        }
+        .plan-desc {
+            font-size: 0.95rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+        .plan-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+        .plan-btn:hover {
+            background: var(--claude-orange);
+            border-color: var(--claude-orange);
         }
 
         /* Video Section */
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
@@ -442,7 +535,20 @@
             cursor: pointer;
         }
 
-        /* Responsive */
+        /* Specific Helper Class to Force 3 Columns on Large Screens */
+        @media (min-width: 1024px) {
+            .three-col-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .pricing-grid, .video-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-center {
@@ -460,12 +566,15 @@
             .nav-links { flex-direction: column; text-align: center; }
             .mobile-toggle { display: block; }
             .nav-right { display: none; }
+            
+            .feature-grid, .pricing-grid, .video-grid {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Dynamic background elements -->
     <div class="bg-animation"></div>
     <div class="bg-blob" style="top: -100px; right: -100px; width: 600px; height: 600px;"></div>
     <div class="bg-blob" style="bottom: -100px; left: -100px; width: 400px; height: 400px;"></div>
@@ -480,6 +589,8 @@
             <div class="nav-center" id="mobileMenu">
                 <ul class="nav-links">
                     <li><a href="#intro" data-i18n="nav_intro">介紹</a></li>
+                    <li><a href="#features-deep" data-i18n="nav_features">功能詳解</a></li>
+                    <li><a href="#pricing" data-i18n="nav_pricing">價格方案</a></li>
                     <li><a href="#download" data-i18n="nav_download">下載</a></li>
                     <li><a href="#install" data-i18n="nav_install">安裝</a></li>
                     <li><a href="#tutorials" data-i18n="nav_tutorials">教學影片</a></li>
@@ -529,6 +640,89 @@
                 </div>
             </div>
 
+            <div class="content-card" id="features-deep">
+                <h2 data-i18n="feat_deep_title">✨ 核心能力與工作流</h2>
+                <div class="feature-grid three-col-grid" style="margin-bottom: 3rem;">
+                    <div class="feature-item">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">💡</div>
+                        <h4 data-i18n="f1_title">強大的智能核心</h4>
+                        <ul class="feature-list">
+                            <li data-i18n="f1_li1">使用 Agentic Search 理解整個代碼庫，無需手動選擇上下文</li>
+                            <li data-i18n="f1_li2">可跨多個檔案進行協調一致的修改</li>
+                            <li data-i18n="f1_li3">針對 Opus 4.5 模型的代碼理解與生成進行了最佳化</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">📍</div>
+                        <h4 data-i18n="f2_title">無縫整合工作環境</h4>
+                        <ul class="feature-list">
+                            <li data-i18n="f2_li1">直接在終端機 (Terminal) 運行，無需切換視窗</li>
+                            <li data-i18n="f2_li2">深度整合 VS Code 與 JetBrains IDE</li>
+                            <li data-i18n="f2_li3">可直接調用您的測試套件與構建系統</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size: 1.5rem; margin-bottom: 10px;">⚙️</div>
+                        <h4 data-i18n="f3_title">完全掌控權</h4>
+                        <ul class="feature-list">
+                            <li data-i18n="f3_li1">未經明確批准，絕不修改檔案</li>
+                            <li data-i18n="f3_li2">自動適應您的代碼風格與規範</li>
+                            <li data-i18n="f3_li3">高度可配置：支持 SDK 構建或在 GitHub Actions 運行</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 data-i18n="workflow_title" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">🔄 自動化工作流程</h3>
+                <div class="feature-grid three-col-grid">
+                    <div class="feature-item">
+                        <h4 data-i18n="w1_title">快速掌握代碼庫</h4>
+                        <p data-i18n="w1_desc" style="font-size: 0.9rem; color: var(--gray-text);">Claude Code 能在幾秒鐘內繪製並解釋整個代碼庫。它使用 Agentic Search 理解專案結構與依賴關係，無需手動選擇檔案。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4 data-i18n="w2_title">從 Issue 到 PR</h4>
+                        <p data-i18n="w2_desc" style="font-size: 0.9rem; color: var(--gray-text);">停止在工具間切換。整合 GitHub/GitLab，從終端機處理完整工作流：讀取 Issue、寫代碼、跑測試，最後提交 PR。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4 data-i18n="w3_title">強大的編輯能力</h4>
+                        <p data-i18n="w3_desc" style="font-size: 0.9rem; color: var(--gray-text);">基於對代碼庫與依賴項的深刻理解，Claude Code 能夠執行有效且準確的多檔案編輯。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card" id="pricing">
+                <h2 data-i18n="price_title">💎 訂閱方案</h2>
+                <p data-i18n="price_sub" style="margin-bottom: 2rem; color: var(--gray-text);">選擇最適合您的 Claude Code 方案，立即開始使用最強大的 AI 模型。</p>
+                
+                <div class="pricing-grid">
+                    <!-- Pro Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-icon">🌱</div>
+                        <div class="plan-name">Pro</div>
+                        <div class="plan-price">$17 <span data-i18n="price_mo">/月</span></div>
+                        <p class="plan-desc" data-i18n="plan_pro_desc">適合小型代碼庫的短衝刺開發。包含 Claude Code，可使用 Sonnet 4.5 與 Opus 4.5。</p>
+                        <a href="https://claude.com/product/claude-code" target="_blank" class="plan-btn" data-i18n="btn_try">Try ClaudeCode</a>
+                    </div>
+
+                    <!-- Max 5x Plan -->
+                    <div class="pricing-card popular">
+                        <div class="pricing-icon">🚀</div>
+                        <div class="plan-name">Max 5x</div>
+                        <div class="plan-price">$100 <span data-i18n="price_mo_person">/人/月</span></div>
+                        <p class="plan-desc" data-i18n="plan_max5_desc">適合較大代碼庫的日常使用。包含 Claude Code，提供更高的使用額度。</p>
+                        <a href="https://claude.com/product/claude-code" target="_blank" class="plan-btn" data-i18n="btn_try">Try ClaudeCode</a>
+                    </div>
+
+                    <!-- Max 20x Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-icon">⚡️</div>
+                        <div class="plan-name">Max 20x</div>
+                        <div class="plan-price">$200 <span data-i18n="price_mo_person">/人/月</span></div>
+                        <p class="plan-desc" data-i18n="plan_max20_desc">為重度使用者設計。在大型專案中提供最高的 Claude 模型存取權限。</p>
+                        <a href="https://claude.com/product/claude-code" target="_blank" class="plan-btn" data-i18n="btn_try">Try ClaudeCode</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="content-card" id="download">
                 <h2 data-i18n="download_title">📥 下載與系統需求</h2>
                 <div class="step">
@@ -573,13 +767,11 @@
                 </div>
             </div>
 
-            <!-- Video Tutorial Section with Actual Thumbnails -->
             <div class="content-card" id="tutorials">
                 <h2 data-i18n="video_title">🎬 安裝教學影片</h2>
                 <p data-i18n="video_desc">如果您在安裝過程中遇到困難，請參考以下針對不同語言的詳細影音教學：</p>
                 
                 <div class="video-grid">
-                    <!-- Traditional Chinese Video -->
                     <div class="video-card">
                         <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/8Q1bRZaHH24/mqdefault.jpg')" onclick="window.open('https://www.youtube.com/watch?v=8Q1bRZaHH24', '_blank')">
                             <span class="play-icon">▶</span>
@@ -591,19 +783,17 @@
                         </div>
                     </div>
 
-                    <!-- Simplified Chinese Video -->
                     <div class="video-card">
                         <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/NGAHdg2vGEo/mqdefault.jpg')" onclick="window.open('https://www.youtube.com/watch?v=NGAHdg2vGEo', '_blank')">
                             <span class="play-icon">▶</span>
                         </div>
                         <div class="video-info">
                             <span class="video-lang-tag" data-i18n="tag_cn">简体中文</span>
-                            <div class="video-title" data-i18n="vid_cn_title">Claude Code 零基础保姆级教程</div>
+                            <div class="video-title" data-i18n="vid_cn_title">Claude Code 零基礎保姆級教程</div>
                             <a href="https://www.youtube.com/watch?v=NGAHdg2vGEo" target="_blank" style="font-size: 0.9rem; color: var(--claude-orange); text-decoration: none;">Watch on YouTube ↗</a>
                         </div>
                     </div>
 
-                    <!-- English Video -->
                     <div class="video-card">
                         <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/QsjrBQK0lTg/mqdefault.jpg')" onclick="window.open('https://www.youtube.com/watch?v=QsjrBQK0lTg', '_blank')">
                             <span class="play-icon">▶</span>
@@ -626,6 +816,11 @@
                 <div class="step" style="border-left-color: var(--gray-text);">
                     <h4 data-i18n="faq_q2">Q: 支援中文對話嗎？</h4>
                     <p data-i18n="faq_a2">支援！你可以直接用中文下指令，例如「幫我解釋這個檔案在做什麼」。</p>
+                </div>
+                <!-- New FAQ Item -->
+                <div class="step" style="border-left-color: var(--gray-text);">
+                    <h4 data-i18n="faq_q3">Q: Claude Code 的操作介面是在 App 還是在終端機/VS Code 中？</h4>
+                    <p data-i18n="faq_a3">Claude Code 是一款「終端機原生 (CLI-Native)」工具，主要在命令列介面運行。它並非獨立的 GUI App，但你可以直接在 VS Code 或任何 IDE 內建的終端機中使用它，實現代碼編輯與 AI 指令的無縫切換。</p>
                 </div>
             </div>
         </main>
@@ -661,6 +856,8 @@
                 site_title: 'Claude Code 指南',
                 lang_btn_label: '語言',
                 nav_intro: '介紹',
+                nav_features: '功能詳解',
+                nav_pricing: '價格方案',
                 nav_download: '下載',
                 nav_install: '安裝',
                 nav_tutorials: '教學影片',
@@ -670,6 +867,34 @@
                 hero_cta: '開始安裝使用',
                 intro_title: '🚀 什麼是 Claude Code？',
                 intro_desc: 'Claude Code 是 Anthropic 推出的革命性命令行工具，它允許開發者直接在終端機中與 Claude 3.5 Sonnet 模型協作。這不是簡單的聊天機器人，它可以讀取你的檔案、執行終端指令、並協助你重構代碼。',
+                feat_deep_title: '✨ 核心能力與工作流',
+                f1_title: '強大的智能核心',
+                f1_li1: '使用 Agentic Search 理解整個代碼庫，無需手動選擇上下文',
+                f1_li2: '可跨多個檔案進行協調一致的修改',
+                f1_li3: '針對 Opus 4.5 模型的代碼理解與生成進行了最佳化',
+                f2_title: '無縫整合工作環境',
+                f2_li1: '直接在終端機 (Terminal) 運行，無需切換視窗',
+                f2_li2: '深度整合 VS Code 與 JetBrains IDE',
+                f2_li3: '可直接調用您的測試套件與構建系統',
+                f3_title: '完全掌控權',
+                f3_li1: '未經明確批准，絕不修改檔案',
+                f3_li2: '自動適應您的代碼風格與規範',
+                f3_li3: '高度可配置：支持 SDK 構建或在 GitHub Actions 運行',
+                workflow_title: '🔄 自動化工作流程',
+                w1_title: '快速掌握代碼庫',
+                w1_desc: 'Claude Code 能在幾秒鐘內繪製並解釋整個代碼庫。它使用 Agentic Search 理解專案結構與依賴關係，無需手動選擇檔案。',
+                w2_title: '從 Issue 到 PR',
+                w2_desc: '停止在工具間切換。整合 GitHub/GitLab，從終端機處理完整工作流：讀取 Issue、寫代碼、跑測試，最後提交 PR。',
+                w3_title: '強大的編輯能力',
+                w3_desc: '基於對代碼庫與依賴項的深刻理解，Claude Code 能夠執行有效且準確的多檔案編輯。',
+                price_title: '💎 訂閱方案',
+                price_sub: '選擇最適合您的 Claude Code 方案，立即開始使用最強大的 AI 模型。',
+                price_mo: '/月',
+                price_mo_person: '/人/月',
+                plan_pro_desc: '適合小型代碼庫的短衝刺開發。包含 Claude Code，可使用 Sonnet 4.5 與 Opus 4.5。',
+                plan_max5_desc: '適合較大代碼庫的日常使用。包含 Claude Code，提供更高的使用額度。',
+                plan_max20_desc: '為重度使用者設計。在大型專案中提供最高的 Claude 模型存取權限。',
+                btn_try: 'Try ClaudeCode',
                 feat_1_title: '直接操作終端',
                 feat_1_desc: '無需切換視窗，Claude 直接在你的 CLI 環境中工作。',
                 feat_2_title: '理解專案結構',
@@ -694,7 +919,7 @@
                 tag_tw: '繁體中文',
                 vid_tw_title: 'Claude Code 繁體中文安裝全攻略',
                 tag_cn: '简体中文',
-                vid_cn_title: 'Claude Code 零基础保姆级教程',
+                vid_cn_title: 'Claude Code 零基礎保姆級教程',
                 tag_en: 'English',
                 vid_en_title: 'Claude Code Ultimate Installation Guide',
                 faq_title: '❓ 常見問題',
@@ -702,6 +927,8 @@
                 faq_a1: '工具本身是開源或免費下載的，但使用時會消耗 Anthropic API 的 Token，這部分是需要付費的。',
                 faq_q2: 'Q: 支援中文對話嗎？',
                 faq_a2: '支援！你可以直接用中文下指令，例如「幫我解釋這個檔案在做什麼」。',
+                faq_q3: 'Q: Claude Code 的操作介面是在 App 還是在終端機/VS Code 中？',
+                faq_a3: 'Claude Code 是一款「終端機原生 (CLI-Native)」工具，主要在命令列介面運行。它並非獨立的 GUI App，但你可以直接在 VS Code 或任何 IDE 內建的終端機中使用它，實現代碼編輯與 AI 指令的無縫切換。',
                 footer_rights: '© 2026 Claude Code Guide. 非官方教學網站 (Unofficial Fan Site).',
                 footer_privacy: '隱私權政策',
                 footer_terms: '服務條款',
@@ -712,6 +939,8 @@
                 site_title: 'Claude Code 指南',
                 lang_btn_label: '语言',
                 nav_intro: '介绍',
+                nav_features: '功能详解',
+                nav_pricing: '价格方案',
                 nav_download: '下载',
                 nav_install: '安装',
                 nav_tutorials: '教学视频',
@@ -721,6 +950,34 @@
                 hero_cta: '开始安装使用',
                 intro_title: '🚀 什么是 Claude Code？',
                 intro_desc: 'Claude Code 是 Anthropic 推出的革命性命令行工具，它允许开发者直接在终端机中与 Claude 3.5 Sonnet 模型协作。这不是简单的聊天机器人，它可以读取你的档案、执行终端指令、并协助你重构代码。',
+                feat_deep_title: '✨ 核心能力与工作流',
+                f1_title: '强大的智能核心',
+                f1_li1: '使用 Agentic Search 理解整个代码库，无需手动选择上下文',
+                f1_li2: '可跨多个文件进行协调一致的修改',
+                f1_li3: '针对 Opus 4.5 模型的代码理解与生成进行了优化',
+                f2_title: '无缝整合工作环境',
+                f2_li1: '直接在终端机 (Terminal) 运行，无需切换窗口',
+                f2_li2: '深度整合 VS Code 与 JetBrains IDE',
+                f2_li3: '可直接调用您的测试套件与构建系统',
+                f3_title: '完全掌控权',
+                f3_li1: '未经明确批准，绝不修改文件',
+                f3_li2: '自动适应您的代码风格与规范',
+                f3_li3: '高度可配置：支持 SDK 构建或在 GitHub Actions 运行',
+                workflow_title: '🔄 自动化工作流程',
+                w1_title: '快速掌握代码库',
+                w1_desc: 'Claude Code 能在几秒钟内绘制并解释整个代码库。它使用 Agentic Search 理解项目结构与依赖关系，无需手动选择文件。',
+                w2_title: '从 Issue 到 PR',
+                w2_desc: '停止在工具间切换。整合 GitHub/GitLab，从终端机处理完整工作流：读取 Issue、写代码、跑测试，最后提交 PR。',
+                w3_title: '强大的编辑能力',
+                w3_desc: '基于对代码库与依赖项的深刻理解，Claude Code 能够执行有效且准确的多文件编辑。',
+                price_title: '💎 订阅方案',
+                price_sub: '选择最适合您的 Claude Code 方案，立即开始使用最强大的 AI 模型。',
+                price_mo: '/月',
+                price_mo_person: '/人/月',
+                plan_pro_desc: '适合小型代码库的短冲刺开发。包含 Claude Code，可使用 Sonnet 4.5 与 Opus 4.5。',
+                plan_max5_desc: '适合较大代码库的日常使用。包含 Claude Code，提供更高的使用额度。',
+                plan_max20_desc: '为重度使用者设计。在大型项目中提供最高的 Claude 模型存取权限。',
+                btn_try: 'Try ClaudeCode',
                 feat_1_title: '直接操作终端',
                 feat_1_desc: '无需切换窗口，Claude 直接在你的 CLI 环境中工作。',
                 feat_2_title: '理解项目结构',
@@ -753,6 +1010,8 @@
                 faq_a1: '工具本身是开源或免费下载的，但使用时会消耗 Anthropic API 的 Token，这部分是需要付费的。',
                 faq_q2: 'Q: 支持中文对话吗？',
                 faq_a2: '支持！你可以直接用中文下指令，例如「帮我解释这个档案在做什么」。',
+                faq_q3: 'Q: Claude Code 的操作界面是在 App 还是在终端/VS Code 中？',
+                faq_a3: 'Claude Code 是一款「终端原生 (CLI-Native)」工具，主要在命令行界面运行。它并非独立的 GUI App，但你可以直接在 VS Code 或任何 IDE 内置的终端中使用它，实现代码编辑与 AI 指令的无缝切换。',
                 footer_rights: '© 2026 Claude Code Guide. 非官方教学网站 (Unofficial Fan Site).',
                 footer_privacy: '隐私权政策',
                 footer_terms: '服务条款',
@@ -763,6 +1022,8 @@
                 site_title: 'Claude Code Guide',
                 lang_btn_label: 'Language',
                 nav_intro: 'Intro',
+                nav_features: 'Features',
+                nav_pricing: 'Pricing',
                 nav_download: 'Download',
                 nav_install: 'Install',
                 nav_tutorials: 'Tutorials',
@@ -772,6 +1033,34 @@
                 hero_cta: 'Get Started',
                 intro_title: '🚀 What is Claude Code?',
                 intro_desc: 'Claude Code is a revolutionary CLI tool by Anthropic that allows developers to collaborate with the Claude 3.5 Sonnet model directly in the terminal. It can read your files, execute commands, and refactor code.',
+                feat_deep_title: '✨ Capabilities & Workflow',
+                f1_title: 'Powerful Intelligence',
+                f1_li1: 'Uses agentic search to understand your entire codebase without manual context selection',
+                f1_li2: 'Makes coordinated changes across multiple files',
+                f1_li3: 'Optimized specifically for code understanding and generation with Opus 4.5',
+                f2_title: 'Works where you work',
+                f2_li1: 'Lives right inside your terminal—no context switching',
+                f2_li2: 'Integrates with VS Code / JetBrains IDEs',
+                f2_li3: 'Uses your test suites and build systems',
+                f3_title: 'You’re in control',
+                f3_li1: 'Never modifies your files without explicit approval',
+                f3_li2: 'Adapts to your coding standards and patterns',
+                f3_li3: 'Configurable: Build on the SDK or run on GitHub Actions',
+                workflow_title: '🔄 Automated Workflow',
+                w1_title: 'Code Onboarding',
+                w1_desc: 'Claude Code maps and explains entire codebases in a few seconds. It uses agentic search to understand project structure and dependencies.',
+                w2_title: 'Turn Issues into PRs',
+                w2_desc: 'Integrates with GitHub/GitLab to handle the entire workflow—reading issues, writing code, running tests, and submitting PRs.',
+                w3_title: 'Make Powerful Edits',
+                w3_desc: 'Claude Code’s understanding of your codebase and dependencies enables it to make powerful, multi-file edits that work.',
+                price_title: '💎 Pricing',
+                price_sub: 'Choose the best plan for you and start building with the most powerful AI.',
+                price_mo: '/mo',
+                price_mo_person: '/person/mo',
+                plan_pro_desc: 'Included in Pro plan. Perfect for short coding sprints in small codebases. Access to Sonnet 4.5 and Opus 4.5.',
+                plan_max5_desc: 'Included in Max plan. Great value for everyday use in larger codebases.',
+                plan_max20_desc: 'Included in Max plan. Great value for power users with the most access to Claude models.',
+                btn_try: 'Try ClaudeCode',
                 feat_1_title: 'CLI Native',
                 feat_1_desc: 'No window switching; Claude works directly in your CLI environment.',
                 feat_2_title: 'Full Context',
@@ -804,6 +1093,8 @@
                 faq_a1: 'The tool is free, but usage consumes Anthropic API Tokens which require a paid balance.',
                 faq_q2: 'Q: Multilingual Support?',
                 faq_a2: 'Yes! You can prompt Claude Code in English, Chinese, and many other languages.',
+                faq_q3: 'Q: Is Claude Code an App or a CLI tool?',
+                faq_a3: 'Claude Code is a CLI-native tool designed to run in your terminal. It is not a standalone GUI App, but you can use it within VS Code or any IDE terminal for a seamless experience.',
                 footer_rights: '© 2026 Claude Code Guide. Unofficial Fan Site.',
                 footer_privacy: 'Privacy Policy',
                 footer_terms: 'Terms of Service',
