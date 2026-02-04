@@ -11,6 +11,7 @@
     <meta property="og:type" content="website">
     <title>Claude Code 下載安裝完整教學 | AI 編程助手指南</title>
     <meta name="google-site-verification" content="Uf3A5rGomCycwQ8Phqli3RB4Gpm76roEbQLF8G9gTYM" />
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -368,7 +369,7 @@
         /* Video Section */
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
@@ -608,6 +609,7 @@
                         <div class="lang-option" onclick="setLang('zh-TW')">繁體中文</div>
                         <div class="lang-option" onclick="setLang('zh-CN')">简体中文</div>
                         <div class="lang-option" onclick="setLang('en')">English</div>
+                        <div class="lang-option" onclick="setLang('ko')">한국어</div>
                     </div>
                 </div>
                 <a href="#download" class="cta-button" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;" data-i18n="btn_download">下載</a>
@@ -795,13 +797,13 @@
                     </div>
 
                     <div class="video-card">
-                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/QsjrBQK0lTg/mqdefault.jpg')" onclick="window.open('https://www.youtube.com/watch?v=QsjrBQK0lTg', '_blank')">
+                        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/v5O6eF8yE2A/mqdefault.jpg')" onclick="window.open('https://www.youtube.com/watch?v=v5O6eF8yE2A', '_blank')">
                             <span class="play-icon">▶</span>
                         </div>
                         <div class="video-info">
-                            <span class="video-lang-tag" data-i18n="tag_en">English</span>
-                            <div class="video-title" data-i18n="vid_en_title">Claude Code Ultimate Installation Guide</div>
-                            <a href="https://www.youtube.com/watch?v=QsjrBQK0lTg" target="_blank" style="font-size: 0.9rem; color: var(--claude-orange); text-decoration: none;">Watch on YouTube ↗</a>
+                            <span class="video-lang-tag" data-i18n="tag_ko">한국어</span>
+                            <div class="video-title" data-i18n="vid_ko_title">Claude Code 한국어 설치 및 사용 가이드</div>
+                            <a href="https://www.youtube.com/watch?v=v5O6eF8yE2A" target="_blank" style="font-size: 0.9rem; color: var(--claude-orange); text-decoration: none;">Watch on YouTube ↗</a>
                         </div>
                     </div>
                 </div>
@@ -922,6 +924,8 @@
                 vid_cn_title: 'Claude Code 零基礎保姆級教程',
                 tag_en: 'English',
                 vid_en_title: 'Claude Code Ultimate Installation Guide',
+                tag_ko: '한국어',
+                vid_ko_title: 'Claude Code 한국어 설치 및 사용 가이드',
                 faq_title: '❓ 常見問題',
                 faq_q1: 'Q: Claude Code 是免費的嗎？',
                 faq_a1: '工具本身是開源或免費下載的，但使用時會消耗 Anthropic API 的 Token，這部分是需要付費的。',
@@ -1003,6 +1007,8 @@
                 vid_tw_title: 'Claude Code 繁体中文安装全攻略',
                 tag_cn: '简体中文',
                 vid_cn_title: 'Claude Code 零基础保姆级教程',
+                tag_ko: '한국어',
+                vid_ko_title: 'Claude Code 한국어 설치 및 사용 가이드',
                 tag_en: 'English',
                 vid_en_title: 'Claude Code Ultimate Installation Guide',
                 faq_title: '❓ 常见问题',
@@ -1086,6 +1092,8 @@
                 vid_tw_title: 'Claude Code TC Installation Guide',
                 tag_cn: 'Simplified Chinese',
                 vid_cn_title: 'Claude Code SC Beginner Tutorial',
+                tag_ko: 'Korean',
+                vid_ko_title: 'Claude Code Korean Guide',
                 tag_en: 'English',
                 vid_en_title: 'Claude Code Ultimate Installation Guide',
                 faq_title: '❓ FAQ',
@@ -1100,6 +1108,91 @@
                 footer_terms: 'Terms of Service',
                 footer_contact: 'Contact Us',
                 footer_disclaimer: 'For educational purposes. Claude Code is a trademark of Anthropic.'
+            },
+            'ko': {
+                site_title: 'Claude Code 가이드',
+                lang_btn_label: '언어',
+                nav_intro: '소개',
+                nav_features: '주요 기능',
+                nav_pricing: '요금제',
+                nav_download: '다운로드',
+                nav_install: '설치',
+                nav_tutorials: '튜토리얼',
+                nav_faq: '자주 묻는 질문',
+                hero_title: 'Claude Code 완전 정복 가이드',
+                hero_subtitle: '최강의 AI 코딩 어시스턴트. 설치부터 환경 설정까지 한 번에 해결하세요.',
+                hero_cta: '시작하기',
+                intro_title: '🚀 Claude Code란 무엇인가요?',
+                intro_desc: 'Claude Code는 Anthropic에서 출시한 혁신적인 CLI 도구로, 개발자가 터미널에서 직접 Claude 3.5 Sonnet 모델과 협업할 수 있게 해줍니다. 단순한 챗봇이 아니라 파일을 읽고, 명령어를 실행하며, 코드 리팩토링을 도와줍니다.',
+                feat_deep_title: '✨ 핵심 역량 및 워크플로우',
+                f1_title: '강력한 지능형 코어',
+                f1_li1: 'Agentic Search를 통해 수동 선택 없이 전체 코드베이스 이해',
+                f1_li2: '여러 파일에 걸친 일관된 수정 가능',
+                f1_li3: 'Opus 4.5 모델에 최적화된 코드 이해 및 생성 능력',
+                f2_title: '원활한 작업 환경 통합',
+                f2_li1: '터미널에서 직접 실행되어 창 전환이 불필요',
+                f2_li2: 'VS Code 및 JetBrains IDE와 깊은 통합',
+                f2_li3: '테스트 도구 및 빌드 시스템 직접 호출 가능',
+                f3_title: '완벽한 통제권',
+                f3_li1: '사용자의 승인 없이 파일을 절대 수정하지 않음',
+                f3_li2: '사용자의 코딩 스타일과 규격에 자동 적응',
+                f3_li3: '높은 확장성: SDK 빌드 또는 GitHub Actions 지원',
+                workflow_title: '🔄 자동화된 워크플로우',
+                w1_title: '코드베이스 빠른 파악',
+                w1_desc: 'Claude Code는 몇 초 만에 전체 코드베이스를 매핑하고 설명합니다. 프로젝트 구조와 의존성을 스스로 이해합니다.',
+                w2_title: 'Issue에서 PR까지',
+                w2_desc: 'GitHub/GitLab 통합으로 Issue 읽기부터 코드 작성, 테스트, PR 제출까지 터미널에서 모두 처리합니다.',
+                w3_title: '강력한 편집 능력',
+                w3_desc: '코드베이스에 대한 깊은 이해를 바탕으로 정확하고 효과적인 다중 파일 편집을 수행합니다.',
+                price_title: '💎 요금제 안내',
+                price_sub: '가장 적합한 요금제를 선택하고 최강의 AI 모델을 경험해 보세요.',
+                price_mo: '/월',
+                price_mo_person: '/인/월',
+                plan_pro_desc: '소규모 코드베이스 및 빠른 개발에 적합합니다. Sonnet 4.5 및 Opus 4.5 사용 가능.',
+                plan_max5_desc: '대규모 프로젝트의 일상적인 사용에 적합하며 더 높은 할당량을 제공합니다.',
+                plan_max20_desc: '헤비 유저를 위한 설계. 대형 프로젝트에서 최고의 모델 액세스 권한을 제공합니다.',
+                btn_try: 'ClaudeCode 체험하기',
+                feat_1_title: '터미널 직접 제어',
+                feat_1_desc: '창 전환 없이 CLI 환경에서 Claude와 직접 작업하세요.',
+                feat_2_title: '프로젝트 구조 이해',
+                feat_2_desc: '전체 폴더를 분석하여 코드의 문맥을 완벽하게 이해합니다.',
+                download_title: '📥 다운로드 및 시스템 요구사항',
+                btn_download: '다운로드',
+                req_title: '사전 요구사항',
+                req_1: 'Node.js 18.0.0 이상 버전',
+                req_2: '유효한 Anthropic API 키 (결제 수단 등록 필요)',
+                req_3: 'Git (버전 관리)',
+                step_mac: 'macOS 사용자 (권장)',
+                step_mac_desc: 'Homebrew를 통한 설치가 가장 빠릅니다:',
+                step_npm: 'Windows / Linux (npm 사용)',
+                step_npm_desc: 'Node.js 설치 확인 후 아래 명령어를 실행하세요:',
+                config_title: '⚙️ 초기화 및 인증',
+                config_desc: '설치 후 터미널에서 최초 로그인 설정을 진행해야 합니다:',
+                config_step1: '1. Claude Code 실행',
+                config_step2: '2. 권한 인증 완료',
+                config_step2_desc: '브라우저가 열리면 Anthropic 계정으로 로그인하세요. 터미널에서 자동으로 설정을 완료합니다.',
+                video_title: '🎬 설치 가이드 영상',
+                video_desc: '설치 과정이 어렵다면 언어별 상세 영상 가이드를 참고하세요:',
+                tag_tw: '번체 한국어',
+                vid_tw_title: 'Claude Code 대만어 설치 가이드',
+                tag_cn: '간체 중국어',
+                vid_cn_title: 'Claude Code 기초 튜토리얼',
+                tag_ko: '한국어',
+                vid_ko_title: 'Claude Code 한국어 설치 및 사용 가이드',
+                tag_en: 'English',
+                vid_en_title: 'Claude Code Ultimate Installation Guide',
+                faq_title: '❓ 자주 묻는 질문',
+                faq_q1: 'Q: Claude Code는 무료인가요?',
+                faq_a1: '도구 자체는 무료이지만, 사용 시 Anthropic API 토큰이 소모되며 이에 따른 비용이 발생합니다.',
+                faq_q2: 'Q: 한국어로 대화가 가능한가요?',
+                faq_a2: '네! "이 파일이 무엇을 하는지 설명해줘"와 같이 한국어로 직접 명령을 내릴 수 있습니다.',
+                faq_q3: 'Q: Claude Code는 독립된 앱인가요?',
+                faq_a3: 'Claude Code는 CLI 기반 도구입니다. 별도의 GUI 앱은 아니지만 VS Code 터미널 등에서 원활하게 사용할 수 있습니다.',
+                footer_rights: '© 2026 Claude Code Guide. 비공식 팬 사이트.',
+                footer_privacy: '개인정보 처리방침',
+                footer_terms: '이용약관',
+                footer_contact: '문의하기',
+                footer_disclaimer: '교육적 목적으로 제작되었습니다. Claude Code는 Anthropic의 상표입니다.'
             }
         };
 
@@ -1118,6 +1211,15 @@
 
             document.getElementById('langMenu').classList.remove('show');
             document.documentElement.lang = lang;
+            
+            // Optional: Update button text
+            const langMap = {
+                'zh-TW': '語言',
+                'zh-CN': '语言',
+                'en': 'Language',
+                'ko': '언어'
+            };
+            document.getElementById('langBtnText').innerText = langMap[lang] || 'Language';
         }
 
         window.onclick = function(event) {
